@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 const Blog = ({ blog }) => {
   return (
     <div>
@@ -19,9 +18,6 @@ const Blog = ({ blog }) => {
           alt="/"
           style={{ width: "100%", height: "200px", objectFit: "cover" }}
         />
-        <div style={{ textAlign: "justify" }} className="mt-3">
-          {blog.description.slice(0, 400)}
-        </div>
       </div>
     </div>
   );

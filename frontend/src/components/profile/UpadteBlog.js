@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import JoditEditor from "jodit-react";
 import { useParams, useNavigate } from "react-router-dom";
 const UpadteBlog = () => {
   const history = useNavigate();
+  const editor = useRef(null);
   const [Inputs, setInputs] = useState({
     title: "",
     description: "",
@@ -59,21 +61,35 @@ const UpadteBlog = () => {
               value={Inputs.title}
               onChange={change}
             />
-            <textarea
-              type="text"
-              placeholder="Description"
-              cols="50"
-              rows="10"
-              style={{
-                width: "100%",
-                border: "1px solid silver",
-                outline: "none",
-              }}
-              className="my-3 p-2"
-              name="description"
-              value={Inputs.description}
-              onChange={change}
-            />
+            {/*  <textarea
+            type="text"
+            placeholder="Description"
+            cols="50"
+            rows="10"
+            style={{
+              width: "100%",
+              border: "1px solid silver",
+              outline: "none",
+            }}
+            className="my-3 p-2"
+            name="description"
+            value={Inputs.description}
+            onChange={change}
+          /> */}
+
+            <div className="d-flex w-100">
+              <JoditEditor
+                className=""
+                name="description"
+                ref={editor}
+                value={Inputs.description}
+                tabIndex={1} // tabIndex of textarea
+                // preferred to use only this option to update the content for performance reasons
+                onChange={(newContent) => {
+                  setInputs({ ...Inputs, description: newContent });
+                }}
+              />
+            </div>
             <input
               type="text"
               placeholder="Image URL"
