@@ -65,26 +65,41 @@ const Search = () => {
                   >
                     <h2>{item.title}</h2>
                   </div>
+                  {item.photo && (
+                    <div
+                      className=" container d-flex justify-content-center align-items-center my-3 blogs-img-div "
+                      style={{ width: "100%", height: "400px" }}
+                    >
+                      <img
+                        className="img-fluid"
+                        style={{
+                          objectFit: "cover",
+                          width: "100%",
+                          height: "400px",
+                        }}
+                        src={item.photo}
+                        alt="/"
+                      />
+                    </div>
+                  )}
                   <div
                     className="container text-align-justify"
-                    style={{
-                      textAlign: "justify",
-                      textJustify: "inter-word",
-                    }}
-                  >
-                    {item.description}
-                  </div>
-                  <div className=" container d-flex justify-content-center align-items-center my-3">
-                    <iframe
-                      width="560"
-                      height="315"
-                      src={`https://www.youtube.com/embed/${item.video}`}
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
+                    style={{ textAlign: "justify", textJustify: "inter-word" }}
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  ></div>
+                  {item.video && (
+                    <div className=" container d-flex justify-content-center align-items-center my-3">
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={`https://www.youtube.com/embed/${item.video}`}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                  )}
                 </div>
               </>
             ))}

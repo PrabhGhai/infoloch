@@ -47,6 +47,11 @@ const YourBlogsCard = () => {
                 >
                   <h2>{item.title}</h2>
                 </div>
+                {item.photo && (
+                  <div className=" container d-flex justify-content-center align-items-center my-3 blogs-img-div ">
+                    <img className="img-fluid" src={item.photo} alt="/" />
+                  </div>
+                )}
                 <div
                   className="container text-align-justify"
                   style={{ textAlign: "justify", textJustify: "inter-word" }}

@@ -14,7 +14,7 @@ const Blogs = () => {
 
   return (
     <div className=" container d-flex justify-content-center align-items-center">
-      <div className="my-4">
+      <div className="my-4 container">
         <div className="" style={{ height: "100vh", overflowY: "scroll" }}>
           {Blog ? (
             Blog.slice(0)
@@ -32,6 +32,11 @@ const Blogs = () => {
                     >
                       <h2>{item.title}</h2>
                     </div>
+                    {item.photo && (
+                      <div className=" container d-flex justify-content-center align-items-center my-3 blogs-img-div">
+                        <img className="img-fluid" src={item.photo} alt="/" />
+                      </div>
+                    )}
                     <div
                       className="container text-align-justify"
                       style={{
