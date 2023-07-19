@@ -24,7 +24,7 @@ const SettingCard = ({ user, setdiv }) => {
       alert("Field Can't be empty");
     } else {
       await axios.put(
-        `http://localhost:1000/api/auth/updateUsername/${user._id}`,
+        `${window.location.origin}/api/auth/updateUsername/${user._id}`,
         Data
       );
       alert("Updated Successfully");
@@ -38,7 +38,7 @@ const SettingCard = ({ user, setdiv }) => {
     } else {
       await axios
         .put(
-          `http://localhost:1000/api/auth/updatePassword/${user._id}`,
+          `${window.location.origin}/api/auth/updatePassword/${user._id}`,
           Password
         )
         .then((response) => alert(response.data.message));
@@ -75,7 +75,7 @@ const SettingCard = ({ user, setdiv }) => {
   };
   const updateImage = async () => {
     await axios
-      .put(`http://localhost:1000/api/auth/upload/${user._id}`, uploadImage)
+      .put(`${window.location.origin}/api/auth/upload/${user._id}`, uploadImage)
       .then((res) => console.log(res.data.message));
   };
 
